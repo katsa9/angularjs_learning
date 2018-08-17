@@ -1,0 +1,27 @@
+{
+  "name": "ng_classifieds",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katsa9/angularjs_learning.git"
+  },
+  "author": "katsa9",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/katsa9/angularjs_learning/issues"
+  },
+  "homepage": "https://github.com/katsa9/angularjs_learning#readme",
+  "dependencies": {
+    "angular": "^1.7.3",
+    "angular-animate": "^1.7.3",
+    "angular-aria": "^1.7.3",
+    "angular-material": "^1.1.10",
+    "angular-messages": "^1.7.3",
+    "mdi": "^2.2.43"
+  }
+}
