@@ -6,14 +6,16 @@
 </head>
 <body ng-app="ngClassifieds" ng-controller="classifiedsCtrl">
 
-    <input type="text" placeholder="Type your name" ng-model="name">
-    <h1>{{ name }}</h1>
-
-
-
+    <!-- <input type="text" placeholder="Type your name" ng-model="name.first">
+    <h1>{{ name.first + ' ' + name.last }}</h1> -->
+    <hello-world></hello-world>
 
     <script src="node_modules/angular/angular.js"></script>
     <script src="scripts/app.js"></script>
+    <script src="node_modules/angular-animate/angular-animate.js"></script>
+    <script src="node_modules/angular-aria/angular-aria.js"></script>
+    <script src="node_modules/angular-messages/angular-messages.js"></script>
+    <script src="node_modules/angular-material/angular-material.js"></script>
     <script src="components/classifieds.ctr.js"></script>
 </body>
 </html>
