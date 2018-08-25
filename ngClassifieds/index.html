@@ -18,26 +18,13 @@
         </div>
     </md-toolbar>
     <md-content class="md-padding" layout="row" layout-wrap>
-        <md-card flex=33>
-            <img src="http://static.dudeiwantthat.com/img/entertainment/cosplay/the-emperors-hand-lightsaber-30068.jpg" alt="">
+        <md-card ng-repeat="classified in classifieds" flex=30>
+            <img ng-src="{{classified.image}}"" alt="">
             <md-card-content>
                 <div class="classified-info">
-                    <h2 class="md-title">Blue Lightsabre</h2> 
-                    <h3>$10 0000</h3>
-                    <p>The lightsaber is the signature weapon of the Jedi Order and their 
-                        Sith counterparts, both of whom can use them for close combat,
-                         or to deflect blaster bolts. In its most prominent showing, 
-                         the lightsaber's energy blade can cut, burn, and melt through 
-                         most substances with little resistance. It leaves cauterized 
-                         wounds in flesh, but can be deflected by another lightsaber blade, 
-                         or by energy shields. The blade has even been used as a tool to 
-                         weld metal substances. Other times, the lightsaber has been shown 
-                         to cause bleeding wounds in the flesh, sometimes accompanied 
-                         by burns. Some exotic saber-proof materials have been introduced 
-                         in the Expanded Universe. An active lightsaber gives off a
-                          distinctive hum, which rises in pitch and volume as the blade 
-                          is moved rapidly through the air. Bringing the blade into
-                           contact with another lightsaber's blade produces a loud crackle.</p>
+                    <h2 class="md-title">{{ classified.title }}</h2> 
+                    <h3>{{ classified.price }}</h3>
+                    <p>{{ classified.description }}</p>
                 </div>
             </md-card-content> 
         </md-card>
