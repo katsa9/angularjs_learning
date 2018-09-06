@@ -28,13 +28,30 @@ angular
                 $scope.classifieds.push(classified);
                 $scope.classified = {};
                 $scope.closeSidebar();
-                $mdToast.show(
-                    $mdToast.simple()
-                    .content("Classified saved!")
-                    .position('top, right')
-                    .hideDelay(3000)
-                );
+                showToast("Classified saved!");
             }
+        }
+
+        $scope.editClassified = function(classified) {
+            $scope.editing = true;
+            $scope.openSidebar();
+            $scope.classified = classified; /*This classified on scope can be accessed because it is on ng-model */
+        }
+
+        $scope.saveEdit = function() {
+            $scope.editing = false;
+            $scope.classified = {};
+            $scope.closeSidebar();
+            showToast("Edit saved!");
+        }
+
+        function showToast(message) {
+            $mdToast.show(
+                $mdToast.simple()
+                .content(message)
+                .position('top, right')
+                .hideDelay(3000)
+            );
         }
     });
 })();

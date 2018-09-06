@@ -48,10 +48,10 @@
                          ng-model="classified.image">
                 </md-input-container>
 
-                <md-button  class="md-primary" ng-click="saveClassified(classified)">
+                <md-button  ng-if="!editing" class="md-primary" ng-click="saveClassified(classified)">
                     Save
                 </md-button>
-                <md-button class="md-primary">
+                <md-button ng-click="saveEdit()" ng-if="editing" class="md-primary">
                         Save Edit
                 </md-button>
                 <md-button ng-click="closeSidebar()" class="md-warn">
@@ -107,7 +107,7 @@
                 <div class="classified-admin" ng-if="showAdmin">
                     <h3>Admin</h3>
                     <div layout="row">
-                        <md-button class="md-primary">Edit</md-button>
+                        <md-button ng-click="editClassified(classified)" class="md-primary">Edit</md-button>  <!-- the 'classified' variable being passed in s the one in the array which we are currently on. See ng-repeat over classifieds array above -->
                         <md-button class="md-warn">Delete</md-button>
                     </div>
                 </div>
