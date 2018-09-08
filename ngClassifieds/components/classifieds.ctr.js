@@ -3,7 +3,7 @@
 
 angular
     .module("ngClassifieds")
-    .controller("classifiedsCtrl", function($scope, $http, classifiedsFactory, $mdSidenav, $mdToast) {
+    .controller("classifiedsCtrl", function($scope, $http, classifiedsFactory, $mdSidenav, $mdToast, $mdDialog) {
         classifiedsFactory.getClassifieds().then(function(data){
             $scope.classifieds = data.data;
         });
@@ -36,6 +36,21 @@ angular
             $scope.editing = true;
             $scope.openSidebar();
             $scope.classified = classified; /*This classified on scope can be accessed because it is on ng-model */
+        }
+
+        $scope.deleteClassified = function(event, classified) {
+            var confirmDialog = $mdDialog.confirm()
+                .title('Are you sure you want to delete ' + classified.title + '?')
+                .ok('Yup')
+                .cancel('Nope')
+                .targetEvent(event);         /**Like a listener event */
+
+            $mdDialog.show(confirmDialog).then(function() {
+                var index = $scope.classifieds.indexOf(classified);
+                $scope.classifieds.splice(index, 1);
+            }, function() {
+
+            });
         }
 
         $scope.saveEdit = function() {
