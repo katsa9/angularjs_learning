@@ -6,6 +6,7 @@ angular
     .controller("classifiedsCtrl", function($scope, $http, classifiedsFactory, $mdSidenav, $mdToast, $mdDialog) {
         classifiedsFactory.getClassifieds().then(function(data){
             $scope.classifieds = data.data;
+            $scope.categories = getCategories($scope.classifieds);
         });
 
         var contact = {
@@ -13,6 +14,7 @@ angular
             phone: "(555) 555555",
             email: "luke.skywalker@gmail.com"
         }
+
 
         $scope.openSidebar = function() {
             $mdSidenav('left').open();
@@ -67,6 +69,16 @@ angular
                 .position('top, right')
                 .hideDelay(3000)
             );
+        }
+
+        function getCategories(classifieds) {
+            var categories = [];
+            angular.forEach(classifieds, function(item) {
+                angular.forEach(item.categories, function(category){
+                    categories.push(category);
+                })
+            })
+            return _.uniq(categories); /**Lodash's unique function to remove duplicates form array */
         }
     });
 })();
